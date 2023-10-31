@@ -51,7 +51,21 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 
 每个备份都有一个字段表示过期时间，备份清理任务每天上午 09:30 执行一次，会将 overdue_day = 0 的备份删除，调用 OSS 接口清理掉。然后将所有的备份过期时间减 1 天。
 
+## 4. 使用案例
 
+### 4.1 背景描述
+
+线下有多套 MySQL ReplicaSet 集群，通过 MySQL Shell 统一管理。为了满足 1 级备份容灾要求（本地磁带备份，异地保存）于是研发该备份系统，对线下数据库的备份进行统一管理。
+
+### 4.2 效果展示
+
+
+
+## 5. 后记
+
+有任何问题，请与我联系。邮箱：[huabing8023@126.com](https://github.com/COOH-791/mysql_clone_backup/tree/main)
+
+欢迎提问题提需求，欢迎 pull requests！
 
 
 
