@@ -19,7 +19,9 @@
   * mysql  Ver 8.0.31 for Linux on x86_64 (MySQL Community Server - GPL)
   * CentOS Linux release 7.9.2009 (Core)
 
-### 3. 
+### 3. 备份系统架构
+
+![](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/design.png)
 
 
 
