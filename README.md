@@ -16,4 +16,10 @@
 
 * 已测试环境
   * Python 3.7
-  * MySQL 8.0.31
+  * mysql  Ver 8.0.31 for Linux on x86_64 (MySQL Community Server - GPL)
+  * CentOS Linux release 7.9.2009 (Core)
+
+### 3. 
+
+
+
