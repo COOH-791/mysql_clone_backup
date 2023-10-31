@@ -23,7 +23,7 @@
 
 MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clone 插件，对数据和日志文件进行备份，然后上传到 OSS 中，整个备份的过程以及备份信息都可以通过 Grafana 中的 Dashboard 查看，意味着它可以管理线下多套 MySQL 集群的备份。
 
-![](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/design.png)
+![架构图](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/design.png)
 
 ### 3.1 全量备份流程
 
@@ -35,7 +35,7 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 6. 检查 OSS 上该备份是否存在，检查本地备份文件是否已经清理。
 7. 检查完成后，备份任务状态修改为 Completed 任务结束。
 
-![](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/chart.png)
+<div align=center>![流程图](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/chart.png)</div>
 
 ### 3.2 日志备份流程
 
