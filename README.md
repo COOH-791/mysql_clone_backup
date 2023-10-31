@@ -59,11 +59,7 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 
 下图是从元数据中心查询到的 Clone 备份信息：
 
-![full](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/full.png)
 
-下图是从元数据库中心查询到到 Binlog 备份信息：
-
-![binlog](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/binlog.png)
 
 ## 5. 后记
 
