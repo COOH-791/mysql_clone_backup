@@ -61,6 +61,10 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 
 ![ds_full](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/ds_full.png)
 
+下图是 Binlog 的备份信息，其中包含 Binlog 开始时间和结束时间：
+
+![ds_bin](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/ds_bin.png)
+
 ## 5. 后记
 
 有任何问题，请与我联系。邮箱：[huabing8023@126.com](https://github.com/COOH-791/mysql_clone_backup/tree/main)
