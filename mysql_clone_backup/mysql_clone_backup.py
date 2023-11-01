@@ -77,6 +77,7 @@ class MySqlCloneBackup(object):
         is_exist, msg = bucket.get_file_info(_file_name)
         if is_exist is True:
             self.write_state_metadata(5)
+            self.flush_logs()
         else:
             self.write_error_metadata(msg)
 
@@ -327,6 +328,18 @@ class MySqlCloneBackup(object):
             print(content)
         else:
             pass
+
+    def flush_logs(self):
+        """
+        备份结束后，刷新一下 Binlog 日志，主要是考虑一些边缘业务，好几天才能写满一个 Binlog
+        这样会导致 Clone 全量备份结束了，日志增量还是几天前的，所以在凌晨，备份结束后，再刷新下日志，让增量日志也触发 OSS 上传
+        """
+        sql_text = 'flush logs;'
+        try:
+            self.mysql_coon(sql_text)
+            self.print_debug('flush logs done')
+        except Exception as err:
+            print(err)
 
 
 class MySQLBinlogBackup(MySqlCloneBackup):

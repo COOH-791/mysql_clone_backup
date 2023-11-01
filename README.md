@@ -53,7 +53,7 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 
 ### 4.1 背景描述
 
-线下有多套 MySQL ReplicaSet 集群，通过 MySQL Shell 管理。为了满足 3  级备份容灾要求（GB/T 20988-2007）研发该备份系统，方便对线下数据库的备份进行统一管理。
+线下有多套 MySQL ReplicaSet 集群，通过 MySQL Shell 管理。为了满足 3  级备份容灾要求（GB/T 20988-2007）研发该备份系统，对线下数据库的备份进行统一管理。
 
 ### 4.2 效果展示
 
