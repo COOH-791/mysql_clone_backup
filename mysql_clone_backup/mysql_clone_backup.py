@@ -537,6 +537,7 @@ if __name__ == '__main__':
         parser.print_help()
         sys.exit(0)
 
+    # 加载配置文件
     mysql_conf, metadata_conf, backup_setting = MySqlCloneBackup.load_config_file(args.config)
 
     # 判断程序的启动方式

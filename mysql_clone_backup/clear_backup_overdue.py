@@ -21,6 +21,11 @@ class ClearBackupTask(object):
         self.bucket = Bucket(OP_MYSQL_CONF['Bucket'])
 
     def main(self):
+
+        # 刷新备份过期时间
+        self.update_overdue_day()
+
+        # 开始备份清理
         remove_file_list = self.get_overdue_list()
 
         for i in remove_file_list:
@@ -36,8 +41,6 @@ class ClearBackupTask(object):
             else:
                 print('删除任务失败')
 
-        # 刷新备份过期时间
-        self.update_overdue_day()
 
     def get_overdue_list(self):
         """
