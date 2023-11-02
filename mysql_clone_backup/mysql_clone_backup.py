@@ -49,7 +49,7 @@ class MySqlCloneBackup(object):
 
     def main(self):
         """
-        主调用方法，备份的阶段
+        主调用方法
         """
         # 判断是集群模式，当前是主库，那么就不在主库备份，
         if self.read_only == 0 and self.is_cluster == 'on':
@@ -185,7 +185,6 @@ class MySqlCloneBackup(object):
     def start_clone_data(self):
         """
         启动 clone 备份
-        :return:
         """
         # 获取当前的时间，作为备份的文件夹名称
         clone_sql = "CLONE LOCAL DATA DIRECTORY '{0}';".format(os.path.join(self.backup_path, self.backup_file_name))
