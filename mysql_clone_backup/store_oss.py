@@ -80,7 +80,16 @@ class Bucket(object):
 
 
 if __name__ == '__main__':
-    bucket_obj = Bucket('proddb-backup')
-    # bucket_obj.get_file_info('aaaa')
+    bucket_obj = Bucket('local')
+
+    # 上传
+    bucket_obj.upload_data('clone.txt', './clone.ini')
+
+    # 调试
+    print(bucket_obj.get_file_info('clone.txt'))
+
+    # 测试删除
+    print(bucket_obj.remove_file('lone.txt'))
+
+    # 测试下载
     bucket_obj.download_file('bak_106_20231026102557.tar.gz', '/opt/backup_server/bak_106_20231026102557.tar.gz')
-    # bucket_obj.remove_file('bak_104_20231018164419.tar.gz')

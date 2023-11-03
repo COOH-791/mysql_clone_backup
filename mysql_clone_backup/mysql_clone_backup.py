@@ -13,7 +13,7 @@ import pymysql
 from pymysql import escape_string
 
 # 独立的 Bucket 类，因为考虑要兼容性，这里 Bucket 没有集成在备份程序中 :-)
-from minio_oss import Bucket
+from store_oss import Bucket
 
 __author__ = 'huabing8023@126.com'
 
