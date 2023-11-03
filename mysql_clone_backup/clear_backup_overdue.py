@@ -3,6 +3,7 @@ import sys
 import pymysql
 from pymysql import escape_string
 
+# 调用 OSS 控制类
 from minio_oss import Bucket
 
 OP_MYSQL_CONF = {

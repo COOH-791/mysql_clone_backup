@@ -5,7 +5,6 @@ from minio import Minio
 from minio.error import S3Error
 
 # Bucket 连接元数据
-
 MINIO_CONF = {
     'endpoint': '',
     'access_key': '',
@@ -24,8 +23,8 @@ class Bucket(object):
     def upload_data(self, file_name, file_path):
         """
         上传压缩后的备份文件
-        :param file_name:
-        :param file_path:
+        :param file_name: 上传到 OSS 后文件的名称
+        :param file_path: 需要上传文件的路径
         :return: 文件是否上传成功
         """
         try:
