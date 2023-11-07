@@ -69,9 +69,13 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 
 ## 5. 推荐阅读
 
-如果您想使用该程序管理线下 MySQL 的备份，可以参考下方部署文档，进行安装部署：
+如果想使用该程序管理线下 MySQL 的备份，可以参考下方部署文档，进行安装部署：
 
 * [MySQL Clone Backup 部署文档](https://github.com/COOH-791/mysql_clone_backup/blob/main/example/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3.md)
+
+如果想了解 MySQL Clone 插件的工作原理及使用方式，可阅读下方文档：
+
+* [MySQL 8.0 Clone Plugin 详解](https://github.com/COOH-791/mysql_clone_backup/blob/main/example/MySQL%E5%85%8B%E9%9A%86%E6%8F%92%E4%BB%B6%E8%AF%A6%E8%A7%A3.md)
 
 ## 6. 后记
 
