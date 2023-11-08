@@ -102,6 +102,7 @@ drwxr-x--- 2 mysql mysql        28 11月  6 11:27 sys
 远程克隆的原理可参考下图，克隆角色分为接收者 (recipient) 与捐赠者 (donor)，默认情况下使用远程克隆会删除 “接收者” 数据目录中的数据，替换为 “捐赠者” 的克隆数据。当然也可以选择将克隆的数据分配到 “接收者” 的其它目录，避免删除 “接收者” 现有的数据。
 
 ![](https://github.com/COOH-791/mysql_clone_backup/blob/main/images/clone-remote.png)
+
 远程克隆的语法如下：
 
 ```sql
