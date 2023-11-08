@@ -107,14 +107,16 @@ class MySqlCloneBackup(object):
         Completed：确认完成 5
         """
         # 备份开始进行阶段写入 SQL
-        doing_sql = "insert into full_backup_metadata(tb_instance_id, backup_uuid, state, backup_path, backup_name, bucket_name) " \
-                    "value ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');".format(self.tb_instance_id,
-                                                                               self.backup_uuid,
-                                                                               'Doing',
-                                                                               self.backup_path,
-                                                                               str(self.backup_file_name + '.tar.gz'),
-                                                                               self.bucket_name
-                                                                               )
+        doing_sql = "insert into full_backup_metadata(tb_instance_id, backup_uuid, state, backup_path, backup_name, " \
+                    "bucket_name, overdue_day) " \
+                    "value ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6});".format(self.tb_instance_id,
+                                                                                    self.backup_uuid,
+                                                                                    'Doing',
+                                                                                    self.backup_path,
+                                                                                    str(self.backup_file_name + '.tar.gz'),
+                                                                                    self.bucket_name,
+                                                                                    self.storage_days
+                                                                                    )
 
         # 备份结束阶段写入 SQL
         done_sql = "update full_backup_metadata set state = 'Done', end_time = now() where backup_uuid = '{0}';".format(
