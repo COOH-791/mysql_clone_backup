@@ -41,6 +41,8 @@ class MySqlCloneBackup(object):
         self.mysql_link_info = mysql_conf_info
         # 元数据中心的连接信息
         self.metadata_link_info = metadata_conf_info
+        # 备份集的恢复时间点
+        self.backup_recover_time = '2999-12-31 00:00:00'
 
         # 备份文件夹名
         self.backup_file_name = 'bak_' + str(self.tb_instance_id) + '_' + str(datetime.now().strftime('%Y%m%d%H%M%S'))
@@ -119,8 +121,8 @@ class MySqlCloneBackup(object):
                                                                                     )
 
         # 备份结束阶段写入 SQL
-        done_sql = "update full_backup_metadata set state = 'Done', end_time = now() where backup_uuid = '{0}';".format(
-            self.backup_uuid)
+        done_sql = "update full_backup_metadata set state = 'Done', end_time = '{1}' " \
+                   "where backup_uuid = '{0}';".format(self.backup_uuid, self.backup_recover_time)
 
         # 开始压缩
         tar_sql = "update full_backup_metadata set state = 'Tar' where backup_uuid = '{0}';".format(self.backup_uuid)
@@ -195,12 +197,36 @@ class MySqlCloneBackup(object):
             self.write_state_metadata(0)
             # 调用备份
             self.mysql_coon(clone_sql)
+            # 确认状态，更新 self.backup_recover_time
+            self.get_clone_recover_time()
             # 修改备份任务状态
             self.write_state_metadata(1)
+            # 输出结果
             self.print_debug('执行完成')
 
         except Exception as error_info:
             self.write_error_metadata(str(error_info))
+
+    def get_clone_recover_time(self):
+        """
+        从 clone_status 表中，查询 CLone 任务的结束时间
+        作为 备份集的恢复时间点
+        """
+        sql_query = "select STATE, BEGIN_TIME, END_TIME from performance_schema.clone_status limit 1;"
+
+        content = self.mysql_coon(sql_query)
+
+        # 组织结果
+        clone_state = content[0][0]
+        # clone_begin = content[0][1]
+        clone_end = content[0][2].strftime("%Y-%m-%d %H:%M:%S")
+
+        if clone_state == 'Completed':
+            self.print_debug('Clone State is Completed')
+            self.backup_recover_time = clone_end
+        else:
+            self.write_error_metadata('Clone State is {0}'.format(clone_state))
+            sys.exit(0)
 
     def exec_zip_command(self):
         """
