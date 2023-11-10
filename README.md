@@ -77,6 +77,10 @@ MySQL Clone Backup 是一款备份管理程序，依赖 MySQL 8.0 版本的 Clon
 
 * [MySQL 8.0 Clone Plugin 详解](https://github.com/COOH-791/mysql_clone_backup/blob/main/example/MySQL%E5%85%8B%E9%9A%86%E6%8F%92%E4%BB%B6%E8%AF%A6%E8%A7%A3.md)
 
+MySQL Clone 基于时间点恢复操作方式，可阅读下方文档：
+
+* [MySQL Clone 基于时间点恢复](https://github.com/COOH-791/mysql_clone_backup/blob/main/example/MySQL%20Clone%20%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%82%B9%E6%81%A2%E5%A4%8D.md#mysql-clone-%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%82%B9%E6%81%A2%E5%A4%8D)
+
 ## 6. 后记
 
 有任何问题，请与我联系。邮箱：[huabing8023@126.com](https://github.com/COOH-791/mysql_clone_backup/tree/main)
