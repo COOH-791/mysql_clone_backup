@@ -7,6 +7,7 @@ from pymysql import escape_string
 # 调用 OSS 控制类
 from store_oss import Bucket
 
+# 如果要配置定时任务，这里需要写绝对路径
 CONFIG_PATH = './clone.ini'
 
 
