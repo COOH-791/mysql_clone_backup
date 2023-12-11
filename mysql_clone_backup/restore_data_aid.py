@@ -14,7 +14,7 @@ class RestoreDataAid(object):
 
     def get_recover_time(self):
         """
-        提供一个实例名，获取数据可恢复的时间范围
+        提供一个实例名，可自动计算出可恢复数据的时间点
         :return:
         """
 
