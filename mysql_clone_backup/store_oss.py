@@ -37,8 +37,8 @@ class Bucket(object):
             )
             # 上传完成返回 True
             return True
-        except S3Error as e:
-            print("[error]:", e)
+        except Exception as err:
+            print("[error]:", err)
             return False
 
     def remove_file(self, file_name):
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     bucket_obj = Bucket('local')
 
     # 上传
-    bucket_obj.upload_data('clone.txt', './clone.ini')
+    bucket_obj.upload_data('binlog_test', '/data/mysql_80/logs/mysql-bin.001487')
 
     # 调试
     print(bucket_obj.get_file_info('clone.txt'))

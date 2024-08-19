@@ -407,6 +407,7 @@ class MySQLBinlogBackup(MySqlCloneBackup):
         :param task_queue:
         """
         binlog_data_queue = list()
+
         for file_path in task_queue:
             file_name, binlog_start_time, binlog_file_size, binlog_name = self.read_binlog_position(file_path)
             binlog_data_queue.append(
@@ -423,6 +424,7 @@ class MySQLBinlogBackup(MySqlCloneBackup):
 
         # 列出所有需要上传的文件列表
         i = 0
+
         while len(binlog_data_queue) > i:
             # 最后一个 Binlog 只做时间参考
             if i + 1 == len(binlog_data_queue):
@@ -440,7 +442,6 @@ class MySQLBinlogBackup(MySqlCloneBackup):
                                       file_path=binlog_data_queue[i]['file_path']):
 
                     self.update_binlog_metadata(binlog_data_queue[i]['task_uuid'], 1)
-
                     self.print_debug('日志备份上传成功:' + binlog_data_queue[i]['binlog_name'])
                 else:
                     self.update_binlog_metadata(binlog_data_queue[i]['task_uuid'], 3)
@@ -488,7 +489,7 @@ class MySQLBinlogBackup(MySqlCloneBackup):
         backup_name, bucket_name, backup_uuid, end_time, overdue_day) values ('{0}', '{1}', '{2}','{3}', '{4}', '{5}', 
         '{6}', '{7}', '{8}', '{9}', '{10}');
         """.format(self.tb_instance_id,
-                   'Doing',
+                   'update',
                    binlog_meta_dict['binlog_start_time'],
                    'binlog',
                    binlog_meta_dict['binlog_file_size'],
